@@ -1,0 +1,24 @@
+# interpreter files
+__pycache__
+*.pyc
+
+# pyqt5 files
+*.ui
+
+# packaging files
+build
+dist
+*.spec
+
+# MacOS files
+.DS_Store
+
+# my files
+trash
+*.sh
+
+# private files
+installed/*
+
+# except .md files
+!*.md
