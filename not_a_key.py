@@ -300,11 +300,14 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.il_history.append(self.impossible_list.copy())
         #
         # building new lists
-        # selects all species that match the chosen option
+        # selects all species that match the chosen option for pl
         new_pl = self._select(option, self.possible_list)
+        # selects all species that match the chosen option for ml
+        # this gets rid of species no longer possible
+        new_ml = self._select(option, self.mistaken_list)
         # if the couplet is untrustworthy (weight > 0.0)
         # selects all species that match the opposite chosen option
-        new_ml = [s for s in self._select(option, self.possible_list, reverse=True) if s not in new_pl]
+        new_ml += [s for s in self._select(option, self.possible_list, reverse=True) if s not in new_pl]
         # stores all other couplets
         new_il = [s for s in self.init_list if s not in new_pl+new_ml]
         #
