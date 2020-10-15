@@ -245,7 +245,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.mistaken_list = list()
         self.impossible_list = list()
         #
-        # history keeping (for back button functionality)
+        # history keeping (for back button functionality + not repeating couplets)
         self.couplet_history = list()
         self.pl_history = list()
         self.ml_history = list()
@@ -318,7 +318,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
     def get_current_couplet(self):
         species_list = self.possible_list + self.mistaken_list
-        self.current_couplet = self.key.choose_new_couplet(species_list)
+        self.current_couplet = self.key.choose_new_couplet(species_list=species_list, used_couplets=self.couplet_history)
 
     def skip_current_couplet(self):
         self.current_couplet = self.key.skip_new_couplet()
