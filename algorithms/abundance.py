@@ -18,6 +18,7 @@ def abundance_score(allowed_couplets, percent, species_list, key_database):
         p_zero = (1 - sum([s in top for s in zero])/len(top)) + abs(len(zero)-len(top))
         p_one = (1 - sum([s in top for s in one])/len(top)) + abs(len(one)-len(top))
         ab_score = max([p_zero, p_one])
+        ab_score += float(key_database.get_weight(couplet))
         # return ab_score to candidate_couplets
         # lower is better
         candidate_couplets.append((couplet, ab_score))
