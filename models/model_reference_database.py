@@ -49,7 +49,7 @@ class ReferenceDatabase(object):
             locations = self.cursor.fetchall()
             locations = [i[0] for i in locations]
             locations = sorted(set(locations))
-            locations.remove('') # remove "" (empty) state (no state info)
+            # locations.remove('') # remove "" (empty) state (no state info)
 
         except sqlite3.Error as e:
             raise e

@@ -19,6 +19,7 @@ trash
 
 # private files
 installed/*
+__dev__*
 
 # except .md files
 !*.md
